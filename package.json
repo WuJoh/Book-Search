@@ -1,33 +1,26 @@
 {
-  "name": "solid-broccoli-main",
+  "name": "googlebooks-app",
   "version": "1.0.0",
-  "description": "## Description I created an app that can be used to track your books and be able to read and gain more knowledge as you please ## - [Description](#Description) - [Installation](#Installation) - [Usage](#Usage) - [Licence](#Licence) - [Contributors](#Contributors) - [Test](#Test) - [Repository Link](#Repository) - [GitHub Info](#GitHub)",
-  "main": "index.js",
-  "dependencies": {
-    "@apollo/react-hooks": "^4.0.0",
-    "apollo-boost": "^0.4.9",
-    "apollo-server": "^2.24.0",
-    "apollo-server-express": "^2.24.0",
-    "express": "^4.17.1",
-    "graphql": "^15.5.0",
-    "graphql-tag": "^2.12.4",
-    "if-env": "^1.0.4",
-    "jsonwebtoken": "^8.5.1",
-    "path": "^0.12.7",
-    "react": "^17.0.2"
-  },
-  "devDependencies": {},
+  "description": "",
+  "main": "server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "cd server && npm start",
+    "start:dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "heroku-postbuild": "cd client && npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/WuJoh/Book-Search.git"
+    "url": "git@work.github.com:arosenkranz/googlebooks-app.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/WuJoh/Book-Search/issues"
+  "dependencies": {
+    "if-env": "^1.0.4"
   },
-  "homepage": "https://github.com/WuJoh/Book-Search#readme"
+  "devDependencies": {
+    "concurrently": "^5.2.0"
+  }
 }
